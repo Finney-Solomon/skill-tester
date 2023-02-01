@@ -2,12 +2,9 @@ const initialState = {
   email: "",
   testQuestionAndAnswer: [
     { question: "Program to print a list of species to the standard output", answer: "" },
-    { question: "Program to print a list of species to the standard output", answer: "" },
-    { question: "Program to print a list of species to the standard output", answer: "" },
-    { question: "Program to print a list of species to the standard output", answer: "" },
-    { question: "Program to print a list of species to the standard output", answer: "" },
-    { question: "Program to print a list of species to the standard output", answer: "" }],
-  questionPage: false
+  ],
+  questionPage: false,
+  signUpBox: false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -19,6 +16,13 @@ export const reducer = (state = initialState, action) => {
         ...state,
         questionPage: payload
       }
+    }
+    case "OPEN_SIGN_UP_PAGE": {
+      console.log(payload, "payload");
+      return {
+        ...state,
+        signUpBox: payload,
+      };
     }
 
     default: {

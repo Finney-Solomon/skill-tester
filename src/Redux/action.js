@@ -4,3 +4,9 @@ export const openTestPage = (payload) => {
           payload,
      };
 }
+export const openSignUpPage = (payload) => {
+     return {
+          type: "OPEN_SIGN_UP_PAGE",
+          payload,
+     };
+}
