@@ -2,15 +2,34 @@
        float: left;
   }
 
+  .displayTime {
+       float: right;
+       color: white;
+       margin-right: 100px;
+       margin-top: 10px
+  }
+
+  .email {
+       float: left;
+       margin-left: 20px;
+       color: white;
+       margin-top: 16px;
+  }
+
   .text {
        color: white;
        font-size: xx-large;
        margin-top: 12px;
+
   }
 
   .footer {
-       background: black;
+       color: rgb(3, 3, 3);
+       min-height: 50px;
+       font-size: 18px;
+       text-decoration: none;
        position: absolute;
        bottom: 0;
        width: 100%;
+       background-color: rgb(44, 46, 48);
   }

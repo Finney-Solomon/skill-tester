@@ -1,13 +1,10 @@
-import { Button, TextField, Card, CardContent } from "@mui/material";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { openSignUpPage, openTestPage } from "../Redux/action";
+
 import "./WelcomePage.css";
-import { Box } from "@mui/system";
-import { LoginPage } from "./LoginPage";
+
+import { LoginContainer } from "./LoginContainer";
 
 const WelcomePage = () => {
-
   return (
     <div
       style={{
@@ -15,11 +12,13 @@ const WelcomePage = () => {
         height: "100vh",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-
+        maxHeight: "100vh",
+        maxWidth: "100%",
       }}
     >
-      <><LoginPage /></>
-
+      <div className="LeftDiv">
+        <LoginContainer />
+      </div>
     </div>
   );
 };

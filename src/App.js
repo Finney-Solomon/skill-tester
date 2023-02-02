@@ -4,7 +4,7 @@ import WelcomePage from "./Introduction/WelcomePage";
 import Test from "./Test/Test";
 function App() {
   const openTestPage = useSelector((state) => state?.questionPage);
-  console.log(openTestPage, "openTestPage")
+
   return (
     <div className="App">
 
