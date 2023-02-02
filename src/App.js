@@ -5,12 +5,7 @@ import Test from "./Test/Test";
 function App() {
   const openTestPage = useSelector((state) => state?.questionPage);
 
-  return (
-    <div className="App">
-
-      {openTestPage ? <Test /> : <WelcomePage />}
-    </div>
-  );
+  return <div className="App">{openTestPage ? <Test /> : <WelcomePage />}</div>;
 }
 
 export default App;

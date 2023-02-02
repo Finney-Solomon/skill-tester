@@ -10,10 +10,11 @@ const WelcomePage = () => {
       style={{
         backgroundImage: "url(/HomePage.jpg)",
         height: "100vh",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        maxHeight: "100vh",
-        maxWidth: "100%",
+        backgroundSize: "contain",
+        backgroundRepeat: "round",
+        width: "200",
+        // maxHeight: "100%",
+        // Width: "140vh",
       }}
     >
       <div className="LeftDiv">

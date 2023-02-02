@@ -9,6 +9,12 @@ export const LoginContainer = () => {
 
   const dispatch = useDispatch();
 
+  const openEmailBox = useSelector((state) => state?.signUpPage);
+
+  const openErrorDialogBox = useSelector((state) => state?.error);
+
+  const openSubmitDialogBox = useSelector((state) => state?.answerSubmit);
+
   const handleClickOpen = () => {
     dispatch(openSignUpPage(true));
   };
@@ -25,21 +31,16 @@ export const LoginContainer = () => {
     dispatch(signIn(state));
   };
 
-  const openEmailBox = useSelector((state) => state?.signUpPage);
-
-  const openErrorDialogBox = useSelector((state) => state?.error);
-  
-  const openSubmitDialogBox = useSelector((state) => state?.answerSubmit);
   return (
     <div>
-      <h1 className="Heading">Welcome to Skill Tester </h1>
+      <h1 className="Heading">Welcome to Skill TesT </h1>
       <div
         style={{
           backgroundImage: "url(/developer.png)",
           height: "50vh",
           backgroundSize: "300px 200px",
           backgroundRepeat: "no-repeat",
-
+          marginLeft: "80px",
           alignItems: "flex-end",
           display: "flex",
         }}
