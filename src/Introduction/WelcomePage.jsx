@@ -10,7 +10,7 @@ const WelcomePage = () => {
       style={{
         backgroundImage: "url(/HomePage.jpg)",
         height: "100vh",
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundRepeat: "round",
         width: "200",
         // maxHeight: "100%",
