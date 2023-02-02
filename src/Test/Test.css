@@ -7,3 +7,10 @@
        font-size: xx-large;
        margin-top: 12px;
   }
+
+  .footer {
+       background: black;
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+  }
