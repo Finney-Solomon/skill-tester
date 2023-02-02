@@ -5,19 +5,31 @@ import { useTimer } from "react-timer-hook";
 import { timer } from "../Redux/action";
 
 export const Header = () => {
+  /* -----------------------------------------------------------------------------------------
+                            Using Dispatch to call the Store             
+      -----------------------------------------------------------------------------------------*/
+  const dispatch = useDispatch();
+  /* -----------------------------------------------------------------------------------------
+                            Getting Email ID by using Hooks
+      -----------------------------------------------------------------------------------------*/
+  const emailID = useSelector((state) => state?.email);
+
+  /**
+   * @description Timer code start from here and when login is successful it will take current time and adds 1hr to it,
+   * on completing 1hr it will dispatch timer(true)
+   * @param we created current time and date using new Date method
+   */
+
   const time = new Date();
 
   time.setSeconds(time.getSeconds() + 10);
 
   const expiryTimestamp = time;
-  const dispatch = useDispatch();
 
   const { seconds, minutes, hours, days } = useTimer({
     expiryTimestamp,
     onExpire: () => dispatch(timer(true)),
   });
-
-  const emailID = useSelector((state) => state?.email);
 
   return (
     <Card

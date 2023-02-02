@@ -5,6 +5,9 @@ import "./WelcomePage.css";
 import { LoginContainer } from "./LoginContainer";
 
 const WelcomePage = () => {
+  /* -----------------------------------------------------------------------------------------
+                                     Background Cover Pic                          
+      -----------------------------------------------------------------------------------------*/
   return (
     <div
       style={{
@@ -13,11 +16,12 @@ const WelcomePage = () => {
         backgroundSize: "cover",
         backgroundRepeat: "round",
         width: "200",
-        // maxHeight: "100%",
-        // Width: "140vh",
       }}
     >
       <div className="LeftDiv">
+     {/* -----------------------------------------------------------------------------------------
+                                       Login Container                          
+      ----------------------------------------------------------------------------------------- */}
         <LoginContainer />
       </div>
     </div>

@@ -1,3 +1,7 @@
+/* -----------------------------------------------------------------------------------------
+                     Initial State     
+      -----------------------------------------------------------------------------------------*/
+
 const initialState = {
   email: "",
   questionPage: false,
@@ -10,8 +14,20 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   const { type, payload } = action;
-
   switch (type) {
+    /* -----------------------------------------------------------------------------------------
+                               Open Sign In component        
+      -----------------------------------------------------------------------------------------*/
+    case "OPEN_SIGN_UP_PAGE": {
+      return {
+        ...state,
+        signUpPage: payload,
+        timer: false,
+      };
+    }
+    /* -----------------------------------------------------------------------------------------
+                               Open Test Component and storing mail id     
+      -----------------------------------------------------------------------------------------*/
     case "OPEN_TEST_PAGE": {
       return {
         ...state,
@@ -19,14 +35,9 @@ export const reducer = (state = initialState, action) => {
         email: payload.email,
       };
     }
-    case "OPEN_SIGN_UP_PAGE": {
-      return {
-        ...state,
-        signUpPage: payload,
-
-        timer: false,
-      };
-    }
+    /* -----------------------------------------------------------------------------------------
+                               Answer Submitted Successfully Dialog Box        
+      -----------------------------------------------------------------------------------------*/
     case "OPEN_SUCCESS_DIALOG_BOX": {
       return {
         ...state,
@@ -36,21 +47,27 @@ export const reducer = (state = initialState, action) => {
         signUpPage: false,
       };
     }
-
+    /* -----------------------------------------------------------------------------------------
+                               Timer if 1hr Exceeded       
+      -----------------------------------------------------------------------------------------*/
     case "SET_TIMER": {
       return {
         ...state,
         timer: true,
         signUpPage: false,
       };
-    }
+    } /* -----------------------------------------------------------------------------------------
+                               open Error Dialog Box and storing the message       
+      -----------------------------------------------------------------------------------------*/
     case "OPEN_ERROR_DIALOG_BOX": {
       return {
         ...state,
         errorMessage: payload,
         error: true,
       };
-    }
+    } /* -----------------------------------------------------------------------------------------
+                               close error dialog box       
+      -----------------------------------------------------------------------------------------*/
     case "CLOSE_ERROR_DIALOG_BOX": {
       return {
         ...state,
@@ -58,7 +75,9 @@ export const reducer = (state = initialState, action) => {
         error: false,
       };
     }
-
+    /* -----------------------------------------------------------------------------------------
+                                Returning Initial State        
+      -----------------------------------------------------------------------------------------*/
     default: {
       return { ...state };
     }

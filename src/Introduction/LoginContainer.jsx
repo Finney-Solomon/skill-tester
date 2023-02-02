@@ -5,15 +5,23 @@ import { openSignUpPage, signIn } from "../Redux/action";
 import { DialogBox } from "../Test/DialogBox";
 
 export const LoginContainer = () => {
+  /* -----------------------------------------------------------------------------------------
+                       Setting the initial state for email                         
+      -----------------------------------------------------------------------------------------*/
   const [state, setstate] = useState("");
 
+  /* -----------------------------------------------------------------------------------------
+                       Using Dispatch to call the Store             
+      -----------------------------------------------------------------------------------------*/
   const dispatch = useDispatch();
 
   const openEmailBox = useSelector((state) => state?.signUpPage);
 
   const openErrorDialogBox = useSelector((state) => state?.error);
 
-  const openSubmitDialogBox = useSelector((state) => state?.answerSubmit);
+  /* -----------------------------------------------------------------------------------------
+                       function to Open/Close Sign In Component                         
+      -----------------------------------------------------------------------------------------*/
 
   const handleClickOpen = () => {
     dispatch(openSignUpPage(true));
@@ -22,10 +30,18 @@ export const LoginContainer = () => {
   const handleClose = () => {
     dispatch(openSignUpPage(false));
   };
+
+  /* -----------------------------------------------------------------------------------------
+                      setting the values entered in setState                         
+      -----------------------------------------------------------------------------------------*/
+
   function handleChange(event) {
     setstate(event.target.value);
   }
 
+  /* -----------------------------------------------------------------------------------------
+                      sending Mail ID to Check New/Old Mail Login                   
+      -----------------------------------------------------------------------------------------*/
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signIn(state));
@@ -102,8 +118,11 @@ export const LoginContainer = () => {
           </>
         )}
       </div>
+
+      {/* -----------------------------------------------------------------------------------------
+                                Dialog Box for showing the Error Messages
+      ----------------------------------------------------------------------------------------- */}
       {openErrorDialogBox ? <DialogBox /> : <></>}
-      {openSubmitDialogBox ? <DialogBox /> : <></>}
     </div>
   );
 };

@@ -4,7 +4,6 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
   TextareaAutosize,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
@@ -13,28 +12,56 @@ import { openTestPage, submitAnswer } from "../Redux/action";
 import { DialogBox } from "./DialogBox";
 
 export const QuestionAnswerArea = () => {
+  /**
+   *@description creating State for answer ,  saving the answer, dialogBox
+   */
   const [answer, setAnswer] = useState("");
+
+  const [saving, setSaving] = useState(false);
 
   const [openDialogBox, setOpenDialogBox] = React.useState(false);
 
-  const [saving, setSaving] = useState(false);
+  const dispatch = useDispatch();
+
+  const emailID = useSelector((state) => state?.email);
+
+  /**
+   * @description changing answer sequences into UTF-8 encoding  character
+   */
+
+  let reduxAnswer = encodeURIComponent(answer);
+  /**
+   * @description opening dialog box on click save button
+   */
 
   const handleDialogOpen = () => {
     setOpenDialogBox(true);
     setSaving(true);
   };
 
+  /**
+   * @description opening dialog box on click cancel button
+   */
+
   const handleDialogBoxCancelOpen = () => {
     setOpenDialogBox(true);
     setSaving(false);
   };
-  const timer = useSelector((state) => state?.timer);
+
+  /**
+   * @description closing dialog box on click cancel button in dialog box
+   */
 
   const handleDialogClose = () => {
     setOpenDialogBox(false);
     dispatch(openTestPage(false));
   };
 
+  /**
+   * @description when timer is true (# 1hr completed) it will call submit button
+   */
+
+  const timer = useSelector((state) => state?.timer);
   useEffect(
     (e) => {
       setSaving(true);
@@ -46,16 +73,16 @@ export const QuestionAnswerArea = () => {
     [timer]
   );
 
-  const dispatch = useDispatch();
-
   const handleChange = (event) => {
     setAnswer(event.target.value);
   };
 
-  let reduxAnswer = encodeURIComponent(answer);
-
-  const emailID = useSelector((state) => state?.email);
-
+  /**
+   * @description on clicking cancel or submit button in the footer, In Submit Button,
+   * if we click OK, then  saving is true then it will dispatch to submitting the answer.
+   * In cancel Button if we click OK then  saving is false then it will return to Welcome Page
+   */
+  console.log(saving, "saving");
   const handleSubmit = () => {
     if (saving) {
       setSaving(false);
@@ -65,6 +92,11 @@ export const QuestionAnswerArea = () => {
       dispatch(openTestPage(false));
     }
   };
+
+  /**
+   * @description if answer submitted successful open DialogBox
+   */
+  const openSubmitDialogBox = useSelector((state) => state?.answerSubmit);
 
   return (
     <>
@@ -84,7 +116,7 @@ export const QuestionAnswerArea = () => {
             className="displayQuestion"
             onChange={handleChange}
             aria-label="maximum height"
-            placeHolder="Start Coding..."
+            placeholder="Start Coding..."
             style={{
               width: "105.4vh",
               backgroundColor: "#FFFFFFF",
@@ -129,6 +161,7 @@ export const QuestionAnswerArea = () => {
           </Button>
         </DialogActions>
       </Dialog>
+      {openSubmitDialogBox ? <DialogBox /> : <></>}
     </>
   );
 };
