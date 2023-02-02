@@ -1,4 +1,7 @@
-import { Button, Card, CardContent, TextField } from "@mui/material";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openSignUpPage, signIn } from "../Redux/action";
