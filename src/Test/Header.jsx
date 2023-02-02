@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import Card from "@mui/material/Card";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTimer } from "react-timer-hook";
@@ -22,7 +22,7 @@ export const Header = () => {
 
   const time = new Date();
 
-  time.setSeconds(time.getSeconds() + 10);
+  time.setSeconds(time.getSeconds() + 60*60);
 
   const expiryTimestamp = time;
 
@@ -45,7 +45,7 @@ export const Header = () => {
         <h3 className="email">Login Mail Id : {emailID}</h3>
         <div className="displayTime">
           <div style={{ fontSize: "30px" }}>
-            <span>Count Down :</span> <span>{days}</span>:<span>{hours}</span>:
+            <span>Count Down </span><span>{hours}</span>:
             <span>{minutes}</span>:<span>{seconds}</span>
           </div>
         </div>

@@ -29,7 +29,7 @@ export const DialogBox = () => {
   };
 
   return (
-    <div>
+    <>
       <Dialog open={openErrorDialogBox} onClose={handleClose}>
         <DialogTitle>{"Message"}</DialogTitle>
         <DialogContent>
@@ -43,6 +43,6 @@ export const DialogBox = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 };

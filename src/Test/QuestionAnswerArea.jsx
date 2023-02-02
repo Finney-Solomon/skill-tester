@@ -1,11 +1,9 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  TextareaAutosize,
-} from "@mui/material";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogContent from "@mui/material/DialogContent";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openTestPage, submitAnswer } from "../Redux/action";
@@ -29,7 +27,7 @@ export const QuestionAnswerArea = () => {
    * @description changing answer sequences into UTF-8 encoding  character
    */
 
-  let reduxAnswer = encodeURIComponent(answer);
+  
   /**
    * @description opening dialog box on click save button
    */
@@ -54,7 +52,6 @@ export const QuestionAnswerArea = () => {
 
   const handleDialogClose = () => {
     setOpenDialogBox(false);
-    dispatch(openTestPage(false));
   };
 
   /**
@@ -82,8 +79,8 @@ export const QuestionAnswerArea = () => {
    * if we click OK, then  saving is true then it will dispatch to submitting the answer.
    * In cancel Button if we click OK then  saving is false then it will return to Welcome Page
    */
-  console.log(saving, "saving");
   const handleSubmit = () => {
+    let reduxAnswer = encodeURIComponent(answer);
     if (saving) {
       setSaving(false);
       setOpenDialogBox(false);
@@ -100,7 +97,6 @@ export const QuestionAnswerArea = () => {
 
   return (
     <>
-      <div>
         <div className="displayQuestion">
           <iframe
             style={{
@@ -111,20 +107,22 @@ export const QuestionAnswerArea = () => {
             title="W3Schools Free Online Web Tutorials"
           ></iframe>
         </div>
-        <div>
           <TextareaAutosize
             className="displayQuestion"
             onChange={handleChange}
+            value={answer}
             aria-label="maximum height"
             placeholder="Start Coding..."
+            fullWidth
             style={{
-              width: "105.4vh",
-              backgroundColor: "#FFFFFFF",
-              height: "84.5vh",
+              width: "45.4vw",
+              fontSize: "22px",
+              overflowY: "auto",
+              overflow:"auto",
+              // backgroundColor: "#FFFFFFF",
+              height: "85.5vh",
             }}
           ></TextareaAutosize>
-        </div>
-      </div>
       <div className="footer">
         <div
           style={{
