@@ -27,7 +27,6 @@ export const QuestionAnswerArea = () => {
    * @description changing answer sequences into UTF-8 encoding  character
    */
 
-  
   /**
    * @description opening dialog box on click save button
    */
@@ -80,7 +79,7 @@ export const QuestionAnswerArea = () => {
    * In cancel Button if we click OK then  saving is false then it will return to Welcome Page
    */
   const handleSubmit = () => {
-    let reduxAnswer = encodeURIComponent(answer);
+    let reduxAnswer = btoa(answer);
     if (saving) {
       setSaving(false);
       setOpenDialogBox(false);
@@ -97,32 +96,32 @@ export const QuestionAnswerArea = () => {
 
   return (
     <>
-        <div className="displayQuestion">
-          <iframe
-            style={{
-              width: "105.4vh",
-              height: "85vh",
-            }}
-            src="https://cmtrn-dev11.labsvc.net/programming_interview_question2.c"
-            title="W3Schools Free Online Web Tutorials"
-          ></iframe>
-        </div>
-          <TextareaAutosize
-            className="displayQuestion"
-            onChange={handleChange}
-            value={answer}
-            aria-label="maximum height"
-            placeholder="Start Coding..."
-            fullWidth
-            style={{
-              width: "45.4vw",
-              fontSize: "22px",
-              overflowY: "auto",
-              overflow:"auto",
-              // backgroundColor: "#FFFFFFF",
-              height: "85.5vh",
-            }}
-          ></TextareaAutosize>
+      <div className="displayQuestion">
+        <iframe
+          style={{
+            width: "105.4vh",
+            height: "85vh",
+          }}
+          src="https://cmtrn-dev11.labsvc.net/programming_interview_question2.c"
+          title="W3Schools Free Online Web Tutorials"
+        ></iframe>
+      </div>
+      <TextareaAutosize
+        className="displayQuestion"
+        onChange={handleChange}
+        value={answer}
+        aria-label="maximum height"
+        placeholder="Start Coding..."
+        fullWidth
+        style={{
+          width: "45.4vw",
+          fontSize: "22px",
+          overflowY: "auto",
+          overflow: "auto",
+          // backgroundColor: "#FFFFFFF",
+          height: "85.5vh",
+        }}
+      ></TextareaAutosize>
       <div className="footer">
         <div
           style={{
